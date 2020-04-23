@@ -3,13 +3,20 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import List from "@material-ui/core/List";
 import Todo from "./Todo";
-export default function TodoList(props) {
+export default function TodoList({ todos, removeTodo, toggleTodo }) {
   return (
     <Paper>
       <List>
-        {props.todos.map((todo) => (
+        {todos.map((todo) => (
           <>
-            <Todo task={todo.task} key={todo.id} completed={todo.completed} />
+            <Todo
+              task={todo.task}
+              key={todo.id}
+              completed={todo.completed}
+              removeTodo={removeTodo}
+              id={todo.id}
+              toggleTodo={toggleTodo}
+            />
             <Divider />
           </>
         ))}
